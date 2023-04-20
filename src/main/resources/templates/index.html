@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Recipe Management Application</title>
+</head>
+<body>
+<div align="center">
+    <h1>Recipe Records</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Instructions</th>
+                <th>Preparation time</th>
+                <th>Calories</th>
+                <th>Cooking time</th>
+                <th>Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="recipe : ${listRecipe}">
+                <td th:text="${recipe?.recipeId}">ID</td>
+                <td th:text="${recipe?.recipeName}">Recipe Name</td>
+                <td th:text="${recipe?.recipeDescription}">Recipe Description</td>
+                <td th:text="${recipe?.instructions}">Instructions</td>
+                <td th:text="${recipe?.prepTime}">Preparation time</td>
+                <td th:text="${recipe?.calory}">Calories</td>
+                <td th:text="${recipe?.cookTime}">Cooking time</td>
+                <td th:text="${recipe?.tag}">Tag</td>
+            </tr>
+        </tbody>
+    </table>
+</div>  
+</body>
+</html>

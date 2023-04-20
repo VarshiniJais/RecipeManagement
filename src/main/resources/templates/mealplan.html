@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Meal plan</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+      form {
+        display: inline-block;
+        border: 2px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      label {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      select {
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      input[type="button"] {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      input[type="button"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Meal plan</h1>
+    <form>
+      <label for="pages">Select a meal plan</label>
+      <select id="pages" name="pages">
+        <option value="mealplantime.html">Plan based on time and calories</option>
+        <option value="mealplaningredient.html">Plan based on ingredients and calories</option>
+      </select>
+      <br><br>
+      <input type="button" value="Go" onclick="goToPage()">
+    </form>
+    <script>
+      function goToPage() {
+        var selectedPage = document.getElementById("pages").value;
+        if (selectedPage == "mealplantime.html") {
+          window.location.href = "mealplantime";
+        } else if (selectedPage == "mealplaningredient.html") {
+          window.location.href = "mealplaningredient";
+        }
+      }
+    </script>
+  </body>
+</html>

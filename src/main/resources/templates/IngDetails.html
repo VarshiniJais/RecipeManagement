@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Display Ingredients</title>
+	<style>
+		body {
+			background-color: #f7f7f7;
+			font-family: Arial, sans-serif;
+			color: #333;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			animation: fadein 1s;
+			-webkit-animation: fadein 1s;
+		}
+		
+		h1 {
+			font-size: 3em;
+			font-weight: bold;
+			color: #070707;
+			text-shadow: 2px 2px #f0f0f0;
+			margin: 50px 0 20px;
+			animation: slidein 1s;
+			-webkit-animation: slidein 1s;
+		}
+		
+		table {
+			margin: 20px auto;
+			border-collapse: collapse;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+			animation: slidein 1s;
+			-webkit-animation: slidein 1s;
+		}
+		
+		th {
+			background-color: #ffb347;
+			color: #fff;
+			font-size: 1.2em;
+			padding: 10px 20px;
+			text-align: left;
+			text-shadow: 1px 1px #f0f0f0;
+			border: 1px solid #ccc;
+		}
+		
+		td {
+			background-color: #fff;
+			color: #333;
+			font-size: 1.1em;
+			padding: 8px 20px;
+			border: 1px solid #ccc;
+			text-align: left;
+			animation: slidein 1s;
+			-webkit-animation: slidein 1s;
+		}
+		
+		tr:nth-child(even) td {
+			background-color: #f0f0f0;
+		}
+		
+		@keyframes slidein {
+			from {
+				transform: translateY(-100%);
+			}
+			to {
+				transform: translateY(0%);
+			}
+		}
+		
+		@-webkit-keyframes slidein {
+			from {
+				transform: translateY(-100%);
+			}
+			to {
+				transform: translateY(0%);
+			}
+		}
+		
+		@keyframes fadein {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+		
+		@-webkit-keyframes fadein {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body style="background-image: url('https://img.freepik.com/free-photo/abstract-blur-supermarket-retail-store_74190-7546.jpg?w=1060&t=st=1681927619~exp=1681928219~hmac=f1b14b1f1bd1b2c875fcb2a8a743a20c330afbafef7c2faebe5b187278793b1a');background-size:cover;">
+	<h1>Shopping List</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Units</th>
+		</tr>
+		<tr th:each="Ingredients : ${IngredientsList}">
+			<td th:text="${Ingredients.intsName}">Id</td>
+			<td th:text="${Ingredients.amount}">Name</td>
+			<td th:text="${Ingredients.unit}">Unit</td>
+		</tr>
+	</table>
+</body>
+</html>

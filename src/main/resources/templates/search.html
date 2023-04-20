@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Recipe Management Application</title>
+    <style>
+        /* Add custom CSS styles for visual appeal */
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3RKDRygkMyRKPUc0e7q4c_DRkNJoIMCpr7Q&usqp=CAU'); /* Replace with your own background image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        div.container {
+            width: 80%;
+            margin: 0 auto;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #333;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Recipes</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Instructions</th>
+            <th>Preparation time</th>
+            <th>Calories</th>
+            <th>Cooking time</th>
+            <th>Tag</th>
+            <th>Meal Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="recipe : ${listRecipe}">
+            <td th:text="${recipe?.recipeId}">ID</td>
+            <input type="hidden" name="recipeId" th:value="${recipe?.recipeId}" />
+            <td th:text="${recipe?.recipeName}">Recipe Name</td>
+            <td th:text="${recipe?.recipeDescription}">Recipe Description</td>
+            <td th:text="${recipe?.instructions}">Instructions</td>
+            <td th:text="${recipe?.prepTime}">Preparation time</td>
+            <td th:text="${recipe?.calory}">Calories</td>
+            <td th:text="${recipe?.cookTime}">Cooking time</td>
+            <td th:text="${recipe?.tag}">Tag</td>
+            <td th:text="${recipe?.tagName}">Meal Time</td>
+        </tr>
+        </tbody>
+    </table>
+    <form action="/shopping" method="POST">
+		 <input type="hidden" name="recipeId" th:value="${recipe?.recipeId}" />
+    	<button type="submit">Generate Shopping list</button>
+	</form>
+</div>
+</body>
+</html>

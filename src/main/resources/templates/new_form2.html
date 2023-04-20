@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>New Recipe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <style>
+        h1 {
+    background-color: #fdfdfc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+        body {
+            background-color: #F8F8FF;
+        }
+        .ui.form {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        h1.ui.header {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+        }
+
+        button.ui.button {
+            background-color: #F2711C;
+            color: white;
+        }
+
+        button.ui.button:hover {
+            background-color: #FBBD08;
+            color: black;
+        }
+    </style>
+    </head>
+    <body style="background-image: url('https://img.freepik.com/free-photo/colorful-veggies-frame-with-copy-space_23-2148290738.jpg?w=1060&t=st=1681925302~exp=1681925902~hmac=f6d12d1d118647b8403430f60a697a64b026d522cca4ea778a5b15e03268ffe4'); background-size: cover;">
+        <div class="ui container">
+            <div class="ui centered grid">
+                <div class="ten wide column">
+                    <form class="ui form" action="#" th:action="@{/save}" th:object="${recipe}" method="post">
+                        <h1 class="ui header">Enter the Recipe</h1>
+                        <div class="ui raised segment">
+                            <div class="field">
+                                <label>ID :</label>
+                                <input type="number" name="recipeId" field="${recipeId}" required>
+                            </div>
+                            <div class="field">
+                                <label>Recipe Name :</label>
+                                <input type="text" name="recipeName" field="${recipeName}" required>
+                            </div>
+                            <div class="field">
+                                <label>Recipe Description :</label>
+                                <input type="text" name="recipeDescription" field="${recipeDescription}" required>
+                            </div>
+                            <div class="field">
+                                <label>Instructions :</label>
+                                <input type="text" name="instructions" field="${instructions}" required>
+                            </div>
+                            <div class="fields">
+                                <div class="six wide field">
+                                    <label>Preparation time :</label>
+                                    <input type="number" name="prepTime" field="${prepTime}" required>
+                                </div>
+                                <div class="six wide field">
+                                    <label>Cooking time :</label>
+                                    <input type="number" name="cookTime" field="${cookTime}" required>
+                                </div>
+                                <div class="four wide field">
+                                    <label>Calory :</label>
+                                    <input type="number" name="calory" field="${calory}" required>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>Tag :</label>
+                                <input type="text" name="tag" field="${tag}" required>
+                            </div>
+                            <button class="ui button" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
