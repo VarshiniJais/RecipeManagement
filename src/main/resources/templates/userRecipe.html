@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>History</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            background-image: url('https://img.freepik.com/free-photo/notebook-spaghetti-with-mushrooms_23-2148551707.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5); /* make the div transparent */
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #152b1a;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px #ccc;
+            animation: slide-in 1s ease-out;
+            font-family: 'Playfair Display', serif; /* change the font style */
+        }
+        .recipe {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .recipe:hover {
+            transform: scale(1.05);
+            box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
+        }
+        .recipe h2 {
+            margin-top: 0;
+            font-size: 32px;
+            color: #2f2f2f;
+            text-shadow: 2px 2px #c3c3c3;
+            animation: slide-in 1s ease-out;
+            font-family: 'Playfair Display', serif; /* change the font style */
+        }
+        .recipe p {
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-size: 20px;
+            color: #4c4c4c;
+            text-shadow: 1px 1px #c3c3c3;
+            font-family: 'Open Sans', sans-serif; /* change the font style */
+        }
+        .recipe p:first-child {
+            margin-top: 0;
+        }
+        @keyframes slide-in {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0%);
+            }
+        }
+    </style>
+    
+</head>
+<body>
+<div class="container">
+    <h1>Recipe History</h1>
+    <div th:each="recipe : ${listRecipe}" class="recipe">
+        <h2 th:text="${recipe?.recipeName}">Recipe Name</h2>
+        <p th:text="'ID: ' + ${recipe?.recipeId}"></p>
+        <p th:text="'Description: ' + ${recipe?.recipeDescription}"></p>
+        <p th:text="'Instructions: ' + ${recipe?.instructions}"></p>
+        <p th:text="'Preparation time: ' + ${recipe?.prepTime}"></p>
+        <p th:text="'Calories: ' + ${recipe?.calory}"></p>
+        <p th:text="'Cooking time: ' + ${recipe?.cookTime}"></p>
+        <p th:text="'Tag: ' + ${recipe?.tag}"></p>
+        <p th:text="'Meal time: ' + ${recipe?.tagName}"></p>
+    </div>
+</div>
+</body>
+</html>

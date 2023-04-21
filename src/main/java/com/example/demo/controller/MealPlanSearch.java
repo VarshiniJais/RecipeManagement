@@ -20,6 +20,10 @@ public class MealPlanSearch
 	private MealPlanTimeDAO MTdao;
 	@Autowired
 	private MealPlanIngredientsDAO MIdao;
+	
+//	 private SearchFactory timeSearchPage = new TimeSearchPage();
+//	 private SearchFactory ingredientSearchPage = new IngredientSearchPage();
+	
 	@RequestMapping(value = {"/mealplan"}, method = RequestMethod.GET)
 	public String viewEnterMealPlan(Model model) 
 	{
@@ -47,8 +51,7 @@ public class MealPlanSearch
 	{
 	    List<MealPlan> listRecipeIngredient = MIdao.list(calory, ingredientName);
 	    (model).addAttribute("listRecipeIngredient", listRecipeIngredient);
-	    System.out.println(listRecipeIngredient.get(0).getTag());
-	    return "searchIngredient";
+	    return "searchingredient" ;
 
 	}
 }

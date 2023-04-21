@@ -19,7 +19,7 @@ class MealPlanTimeDAO
 	public List<MealPlan> list(float cal, String time) 
 	{
 		//"SELECT recipeId, recipeName,recipeDescription,instructions,prepTime,calory,cookTime,Tags.tag,tagName FROM RECIPES,Tags WHERE calory <"+cal+" AND Tags.tagName='"+time+"'";
-		String sql = "SELECT recipeId, recipeName,recipeDescription,instructions,prepTime,calory,cookTime,Tags.tag,tagName FROM RECIPES,Tags WHERE calory <"+cal+" AND Tags.tagName='"+time+"'";
+		String sql = "SELECT recipeId, recipeName,recipeDescription,instructions,prepTime,calory,cookTime,Recipes.tag,tagName FROM Recipes INNER JOIN Tags ON Recipes.tag = Tags.tag WHERE Recipes.calory <"+cal+" AND Tags.tagName='"+time+"';";
 	    List<MealPlan> listRecipeTime = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(MealPlan.class));
 	    return listRecipeTime;
 	}
